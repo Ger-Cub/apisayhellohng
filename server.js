@@ -68,7 +68,7 @@ app.get('/api/hello', async (req, res) => {
   try {
     
 
-      const location = clientCity.city || 'New York';
+      const location = clientCity.city;
   
       const temperature = await getTemperatureByCity(location) || 11 ; 
   
