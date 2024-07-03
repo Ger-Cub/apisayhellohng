@@ -57,7 +57,7 @@ async function getTemperatureByCity(cityName) {
 
 
 app.get('/api/hello', async (req, res) => {
-  const visitorName = req.query.visitor_name; // Get visitor name from query parameter
+  const visitorName = req.query.visitor_name || 'Gerard'; // Get visitor name from query parameter
   // const clientIP = ip.address(); // Get client IP address
 
   const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
@@ -68,7 +68,7 @@ app.get('/api/hello', async (req, res) => {
   try {
     
 
-      const location = clientCity.city;
+      const location = clientCity.city || 'New York';
   
       const temperature = await getTemperatureByCity(location) || 11 ; 
   
